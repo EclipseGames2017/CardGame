@@ -1,27 +1,27 @@
 [
 	{
 		"name": "Donald Trump",
-		"name-en": "Donald Trump",
+		"name_en": "Donald Trump",
 		"occupation": "US President"
 	},
 	{
 		"name": "Mahātmā Gandhi",
-		"name-en": "Mahātmā Gandhi",
+		"name_en": "Mahātmā Gandhi",
 		"occupation": "Lawyer/Politician/Activist"
 	},
 	{
 		"name": "김정은",
-		"name-en": "Kim Jong-un",
+		"name_en": "Kim Jong-un",
 		"occupation": "Supreme Leader of North Korea"
 	},
 	{
 		"name": "Владимир Путин",
-		"name-en": "Vladimir Putin",
+		"name_en": "Vladimir Putin",
 		"occupation": "President of the Russian Federation"
 	},
 	{
 		"name": "Adolf Hitler",
-		"name-en": "Adolf Hitler",
+		"name_en": "Adolf Hitler",
 		"occupation": "Leader of the Third Reich"
 	}
 ]
