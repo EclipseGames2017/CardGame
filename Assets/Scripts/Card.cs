@@ -15,11 +15,11 @@ namespace EclipseStudios.CardGame
     [System.Serializable]
     public class CardList
     {
-        public Card[] cards;
+        public List<Card> cards;
 
         public CardList(Card[] cards)
         {
-            this.cards = cards;
+            this.cards = new List<Card>(cards);
         }
 
         public Card this[int index]
@@ -38,8 +38,20 @@ namespace EclipseStudios.CardGame
         {
             get
             {
-                return cards.Length;
+                return cards.Count;
             }
+        }
+        public int Count
+        {
+            get
+            {
+                return cards.Count;
+            }
+        }
+
+        public void AddCard()
+        {
+            cards.Add(new Card());
         }
 
         public IEnumerator GetEnumerator()
