@@ -46,32 +46,24 @@ namespace EclipseStudios.CardGame
             {
                 return;
             }
-
-            //ChangeArraySize(EditorGUILayout.IntField("Card Count", cards.Length, GUILayout.Width(200f)));
-
+            
             scrollViewPosition = GUILayout.BeginScrollView(scrollViewPosition);
             for (int i = 0; i < cards.Length; i++)
             {
-                string title = i + ": " + cards[i].Name_En;
+                string title = i + ": " + cards[i].Name;
                 foldoutStates[i] = EditorGUILayout.Foldout(foldoutStates[i], title, true);
                 if (foldoutStates[i])
                 {
-                    #region Name (English)
-                    GUILayout.BeginHorizontal();
-                    GUILayout.Space(indent);
-                    cards[i].Name_En = EditorGUILayout.TextField("Name (English)", cards[i].Name_En, GUILayout.Width(400f - indent));
-                    GUILayout.EndHorizontal();
-                    #endregion
                     #region Name
                     GUILayout.BeginHorizontal();
                     GUILayout.Space(indent);
                     cards[i].Name = EditorGUILayout.TextField("Name", cards[i].Name, GUILayout.Width(400f - indent));
                     GUILayout.EndHorizontal();
                     #endregion
-                    #region Occupation
+                    #region Description
                     GUILayout.BeginHorizontal();
                     GUILayout.Space(indent);
-                    cards[i].Occupation = EditorGUILayout.TextField("Occupation", cards[i].Occupation, GUILayout.Width(400f - indent));
+                    cards[i].Description = EditorGUILayout.TextField("Description", cards[i].Description, GUILayout.Width(400f - indent));
                     GUILayout.EndHorizontal();
                     #endregion
                     #region Remove Button
@@ -79,7 +71,11 @@ namespace EclipseStudios.CardGame
                     GUILayout.Space(indent);
                     if (GUILayout.Button("Remove Card", GUILayout.Width(200f)))
                     {
-                        throw new System.NotImplementedException();
+                        if (EditorUtility.DisplayDialog("Remove " + cards[i].Name + "?","Are you sure you want to remove " + cards[i].Name + " from the list?  This cannot be undone.", "Remove", "Cancel"))
+                        {
+                            cards.RemoveAt(i);
+                            foldoutStates.RemoveAt(i);
+                        }
                     }
                     GUILayout.EndHorizontal();
                     #endregion
@@ -88,17 +84,11 @@ namespace EclipseStudios.CardGame
 
             if (GUILayout.Button("Add New Card", GUILayout.Width(400f)))
             {
-                cards.AddCard();
+                cards.AddNewCard();
                 foldoutStates.Add(true);
             }
 
             GUILayout.EndScrollView();
-        }
-
-        void ChangeArraySize(int newSize)
-        {
-            // TODO: If the new size is larger, just resize it
-            // TODO: If the new size is smaller, show a warning that data will be lost
         }
 
         void LoadCardData()
@@ -120,7 +110,7 @@ namespace EclipseStudios.CardGame
         {
             using (StreamWriter sw = new StreamWriter(dataPath))
             {
-                string json = JsonUtility.ToJson(cards);
+                string json = JsonUtility.ToJson(cards, false);
                 sw.Write(json);
             }
 

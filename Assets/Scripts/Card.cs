@@ -8,8 +8,7 @@ namespace EclipseStudios.CardGame
     public class Card
     {
         public string Name;
-        public string Name_En;
-        public string Occupation;
+        public string Description;
     }
 
     [System.Serializable]
@@ -49,9 +48,14 @@ namespace EclipseStudios.CardGame
             }
         }
 
-        public void AddCard()
+        public void AddNewCard()
         {
             cards.Add(new Card());
+        }
+
+        public void RemoveAt(int i)
+        {
+            cards.RemoveAt(i);
         }
 
         public IEnumerator GetEnumerator()
