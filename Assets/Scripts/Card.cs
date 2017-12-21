@@ -62,5 +62,15 @@ namespace EclipseStudios.CardGame
         {
             return cards.GetEnumerator();
         }
+
+        public void Shuffle()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Card DrawCard()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

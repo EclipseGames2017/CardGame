@@ -6,6 +6,7 @@ using UnityEditor;
 
 namespace EclipseStudios.CardGame
 {
+    //TODO: Move debug logs from OnGUI to Save/Load methods
     public class DataEditorWindow : EditorWindow
     {
         const string dataPath = "Assets/Data/card_data.json";
@@ -14,6 +15,8 @@ namespace EclipseStudios.CardGame
         Vector2 scrollViewPosition = Vector2.zero;
 
         List<bool> foldoutStates;
+
+        bool hasChanges = false, hasLoaded = false;
 
         int indent = 30;
 
@@ -35,12 +38,25 @@ namespace EclipseStudios.CardGame
             if (GUILayout.Button("Load Card Data", GUILayout.Width(200f)))
             {
                 LoadCardData();
+                hasChanges = false;
+                hasLoaded = true;
             }
             if (GUILayout.Button("Save Card Data", GUILayout.Width(200f)))
             {
-                SaveCardData();
+                if (hasChanges)
+                {
+                    SaveCardData();
+                    hasChanges = false;
+                    Debug.Log("Changes saved!");
+                }
+                else
+                {
+                    Debug.Log("No changes to save!");
+                }
             }
             GUILayout.EndHorizontal();
+
+            GUILayout.Label("Changes: " + hasChanges);
 
             if (cards == null)
             {
@@ -54,18 +70,25 @@ namespace EclipseStudios.CardGame
                 foldoutStates[i] = EditorGUILayout.Foldout(foldoutStates[i], title, true);
                 if (foldoutStates[i])
                 {
+                    string temp = "";
                     #region Name
                     GUILayout.BeginHorizontal();
                     GUILayout.Space(indent);
-                    cards[i].Name = EditorGUILayout.TextField("Name", cards[i].Name, GUILayout.Width(400f - indent));
+                    temp = EditorGUILayout.TextField("Name", cards[i].Name, GUILayout.Width(400f - indent));
+                    if (temp != cards[i].Name) hasChanges = true;
+                    cards[i].Name = temp;
                     GUILayout.EndHorizontal();
                     #endregion
+
                     #region Description
                     GUILayout.BeginHorizontal();
                     GUILayout.Space(indent);
-                    cards[i].Description = EditorGUILayout.TextField("Description", cards[i].Description, GUILayout.Width(400f - indent));
+                    temp = EditorGUILayout.TextField("Description", cards[i].Description, GUILayout.Width(400f - indent));
+                    if (temp != cards[i].Description) hasChanges = true;
+                    cards[i].Description = temp;
                     GUILayout.EndHorizontal();
                     #endregion
+
                     #region Remove Button
                     GUILayout.BeginHorizontal();
                     GUILayout.Space(indent);
@@ -75,6 +98,7 @@ namespace EclipseStudios.CardGame
                         {
                             cards.RemoveAt(i);
                             foldoutStates.RemoveAt(i);
+                            hasChanges = true;
                         }
                     }
                     GUILayout.EndHorizontal();
@@ -82,10 +106,11 @@ namespace EclipseStudios.CardGame
                 }
             }
 
-            if (GUILayout.Button("Add New Card", GUILayout.Width(400f)))
+            if (hasLoaded && GUILayout.Button("Add New Card", GUILayout.Width(400f)))
             {
                 cards.AddNewCard();
                 foldoutStates.Add(true);
+                hasChanges = true;
             }
 
             GUILayout.EndScrollView();
@@ -115,6 +140,19 @@ namespace EclipseStudios.CardGame
             }
 
             AssetDatabase.ImportAsset(dataPath, ImportAssetOptions.ForceUpdate);
+        }
+
+        void OnDestroy()
+        {
+            if (hasChanges)
+            {
+                if (EditorUtility.DisplayDialog("Unsaved changes",
+                        "There are unsaved changes, what do you want to do?",
+                        "Save", "Don't save"))
+                {
+                    SaveCardData();
+                }
+            }
         }
     }
 }
