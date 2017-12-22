@@ -56,13 +56,11 @@ namespace EclipseStudios.CardGame
             }
             GUILayout.EndHorizontal();
 
-            GUILayout.Label("Changes: " + hasChanges);
-
             if (cards == null)
             {
                 return;
             }
-            
+
             scrollViewPosition = GUILayout.BeginScrollView(scrollViewPosition);
             for (int i = 0; i < cards.Length; i++)
             {
@@ -108,7 +106,7 @@ namespace EclipseStudios.CardGame
 
             if (hasLoaded && GUILayout.Button("Add New Card", GUILayout.Width(400f)))
             {
-                cards.AddNewCard();
+                cards.AddCard();
                 foldoutStates.Add(true);
                 hasChanges = true;
             }
