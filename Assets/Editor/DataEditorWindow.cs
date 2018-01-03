@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEditor;
+using Newtonsoft.Json;
 
 namespace EclipseStudios.CardGame
 {
@@ -10,7 +11,7 @@ namespace EclipseStudios.CardGame
     public class DataEditorWindow : EditorWindow
     {
         const string dataPath = "Assets/Data/card_data.json";
-        CardList cards;
+        Card[] cards;
 
         Vector2 scrollViewPosition = Vector2.zero;
 
@@ -119,7 +120,7 @@ namespace EclipseStudios.CardGame
             using (StreamReader sr = new StreamReader(dataPath))
             {
                 string json = sr.ReadToEnd();
-                cards = JsonUtility.FromJson<CardList>(json);
+                cards = JsonConvert.DeserializeObject<Card[]>(json);
             }
 
             foldoutStates = new List<bool>();
@@ -133,7 +134,7 @@ namespace EclipseStudios.CardGame
         {
             using (StreamWriter sw = new StreamWriter(dataPath))
             {
-                string json = JsonUtility.ToJson(cards, false);
+                string json = JsonConvert.SerializeObject(cards);
                 sw.Write(json);
             }
 
