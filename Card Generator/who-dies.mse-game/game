@@ -1,0 +1,25 @@
+mse version: 2.0.0
+short name: Who Dies
+full name: Who Dies
+installer group: whodies
+icon: icon.png
+position hint: 01
+
+card field:
+	type: color
+	name: bg_colour
+	editable: true
+	show statistics: false
+	default: rgb(0, 0, 0)
+
+card field:
+	type: text
+	name: name
+	show statistics: false
+	editable: true
+	card list visible: true
+	card list name: Name
+	card list column: 1
+	card list width: 250
+	description: The name of the card
+

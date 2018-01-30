@@ -1,0 +1,33 @@
+mse version: 2.0.0
+game: who-dies
+short name: Who Dies
+full name: Who Dies
+installer group: whodies
+icon: icon.png
+position hint: 01
+
+depends on:
+	package: who-dies.mse-game
+
+card width: 816
+card height: 1110
+card dpi: 300
+card background: rgb(150, 0, 0)
+
+card style:
+	bg_colour:
+		left: 0
+		top: 0
+		width: 816
+		height: 1110
+	name:
+		left: 64
+		top: 64
+		width: 688
+		height: 100
+		alignment: center
+		font:
+			name: Andalus
+			size: 48
+			weight: bold
+			color: rgb(200, 200, 200)
