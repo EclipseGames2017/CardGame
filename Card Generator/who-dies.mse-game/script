@@ -1,8 +1,14 @@
-pos_of_card := {
-		position(
-			of: card
-			in: set
-			order_by: {
-				card.name
-			}) + 1
-	}
+card_number :=
+{
+	number := position(of: card, in: set, order_by: { card.name }) + 1
+	if number <= 9 then "00" + number else
+	if number <= 99 then "0" + number else
+	"" + number
+}
+card_count :=
+{
+	number := number_of_items(in: set)
+	if number <= 9 then "00" + number else
+	if number <= 99 then "0" + number else
+	"" + number
+}

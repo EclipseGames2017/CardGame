@@ -25,6 +25,12 @@ styling field:
 	description: The colour of the description text
 	initial: rgb(200, 200, 200)
 
+styling field:
+	type: color
+	name: number colour
+	description: The colour of the number text
+	initial: rgb(200, 200, 200)
+
 card style:
 	card background:
 		left: 0
@@ -33,44 +39,61 @@ card style:
 		height: 1110
 		default: background.png
 		z index: 0
-	image:
-		left: 100
-		top: 150
-		right: 716
-		height: 500
-		z index: 1
 	name:
 		left: 64
 		top: 64
 		width: 688
-		height: 64
-		alignment: middle center
+		height: 80
+		alignment: middle center shrink-overflow
+		font:
+			name: Andalus
+			size: 42
+			weight: bold
+			color: { styling.name_colour }
+		z index: 3
+	image:
+		left: 128
+		top: 155
+		height: 612
+		width: 560
+		z index: 2
+	image border:
+		left: 126
+		top: 153
+		height: 616
+		width: 564
+		z index: 1
+	description:
+		left: 64
+		width: 688
+		bottom: 1046
+		height: 256
+		alignment: top center
 		font:
 			name: Andalus
 			size: 28
 			weight: bold
-			color: { styling.name_colour }
-		z index: 3
-	description:
-		left: 64
-		top: 660
-		width: 688
-		bottom: 1046
-		alignment: top center
-		font:
-			name: Andalus
-			size: 20
-			weight: bold
 			color: { styling.description_colour }
 		z index: 2
 	number text:
-		left: 34
-		bottom: 1110
+		left: 36
+		top: 1050
 		width: 150
-		height: 50
+		height: 34
+		alignment: middle left
 		font:
 			name: Andalus
-			size: 14
-			weight: bold
-			color: rgb(255, 255, 255)
+			size: 12
+			color: { styling.number_colour }
+		z index: 5
+	copyright:
+		left: 406
+		top: 1050
+		width: 376
+		height: 34
+		alignment: middle right
+		font:
+			name: Andalus
+			size: 12
+			color: { styling.number_colour }
 		z index: 5
