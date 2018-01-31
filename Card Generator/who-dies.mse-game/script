@@ -1,0 +1,8 @@
+pos_of_card := {
+		position(
+			of: card
+			in: set
+			order_by: {
+				card.name
+			}) + 1
+	}

@@ -12,22 +12,65 @@ depends on:
 card width: 816
 card height: 1110
 card dpi: 300
-card background: rgb(150, 0, 0)
+
+styling field:
+	type: color
+	name: name colour
+	description: The colour of the name text
+	initial: rgb(200, 200, 200)
+
+styling field:
+	type: color
+	name: description colour
+	description: The colour of the description text
+	initial: rgb(200, 200, 200)
 
 card style:
-	bg_colour:
+	card background:
 		left: 0
 		top: 0
 		width: 816
 		height: 1110
+		default: background.png
+		z index: 0
+	image:
+		left: 100
+		top: 150
+		right: 716
+		height: 500
+		z index: 1
 	name:
 		left: 64
 		top: 64
 		width: 688
-		height: 100
-		alignment: center
+		height: 64
+		alignment: middle center
 		font:
 			name: Andalus
-			size: 48
+			size: 28
 			weight: bold
-			color: rgb(200, 200, 200)
+			color: { styling.name_colour }
+		z index: 3
+	description:
+		left: 64
+		top: 660
+		width: 688
+		bottom: 1046
+		alignment: top center
+		font:
+			name: Andalus
+			size: 20
+			weight: bold
+			color: { styling.description_colour }
+		z index: 2
+	number:
+		left: 0
+		top: 0
+		width: 50
+		height: 50
+		font:
+			name: Andalus
+			size: 14
+			weight: bold
+			color: rgb(255, 255, 255)
+		z index: 5

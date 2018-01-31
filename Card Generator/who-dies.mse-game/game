@@ -5,21 +5,47 @@ installer group: whodies
 icon: icon.png
 position hint: 01
 
+init script: include file: script
+
 card field:
-	type: color
-	name: bg_colour
-	editable: true
+	type: image
+	name: card background
 	show statistics: false
-	default: rgb(0, 0, 0)
+	editable: false
+	description: The background of the card
 
 card field:
 	type: text
 	name: name
 	show statistics: false
-	editable: true
 	card list visible: true
 	card list name: Name
-	card list column: 1
+	card list column: 2
 	card list width: 250
 	description: The name of the card
 
+card field:
+	type: image
+	name: image
+	show statistics: false
+	description: The image for the card
+
+card field:
+	type: text
+	name: description
+	multi line: true
+	description: The description of the person
+
+card field:
+	type: text
+	name: number
+	script:
+		if pos_of_card()<=9 then "00" + pos_of_card(value) else
+		if pos_of_card()>=9 and pos_of_card()<=99 then "0" + pos_of_card(value) else
+		"" + pos_of_card(value)
+	card list visible: true
+	card list column: 1
+	card list width: 55
+	card list name: #
+	editable: false
+	show statistics: false
