@@ -63,10 +63,10 @@ card style:
 			weight: bold
 			color: { styling.description_colour }
 		z index: 2
-	number:
-		left: 0
-		top: 0
-		width: 50
+	number text:
+		left: 34
+		bottom: 1110
+		width: 150
 		height: 50
 		font:
 			name: Andalus

@@ -49,3 +49,17 @@ card field:
 	card list name: #
 	editable: false
 	show statistics: false
+
+card field:
+	type: text
+	name: card count
+	script: number_of_items(in: set)
+	editable: false
+	show statistics: false
+
+card field:
+	type: text
+	name: number text
+	script: card.number + "/" + card.card_count
+	editable: false
+	show statistics: false
