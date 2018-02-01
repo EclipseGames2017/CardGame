@@ -8,11 +8,15 @@ position hint: 01
 init script: include file: script
 
 card field:
-	type: image
-	name: card background
-	show statistics: false
-	editable: false
-	description: The background of the card
+	type: choice
+	name: card type
+	choice: character
+	choice: situation
+	default: "character"
+	card list name: Type
+	card list column: 3
+	card list width: 250
+	description: The type of card
 
 card field:
 	type: text

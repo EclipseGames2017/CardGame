@@ -32,13 +32,16 @@ styling field:
 	initial: rgb(200, 200, 200)
 
 card style:
-	card background:
+	card type:
 		left: 0
 		top: 0
 		width: 816
 		height: 1110
-		default: background.png
-		z index: 0
+		render style: image
+		popup style: in place
+		choice images:
+			character: character_frame.png
+			situation: situation_frame.png
 	name:
 		left: 64
 		top: 64
@@ -66,8 +69,8 @@ card style:
 	description:
 		left: 64
 		width: 688
+		top: 840
 		bottom: 1046
-		height: 256
 		alignment: top center
 		font:
 			name: Andalus
