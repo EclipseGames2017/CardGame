@@ -9,94 +9,65 @@ position hint: 01
 depends on:
 	package: who-dies.mse-game
 
-card width: 816
-card height: 1110
+card width: 1110
+card height: 816
 card dpi: 300
 
 styling field:
 	type: color
-	name: name colour
-	description: The colour of the name text
+	name: text colour
+	description: The colour of the text
 	initial: rgb(200, 200, 200)
 
 styling field:
 	type: color
-	name: description colour
-	description: The colour of the description text
-	initial: rgb(200, 200, 200)
-
-styling field:
-	type: color
-	name: number colour
-	description: The colour of the number text
-	initial: rgb(200, 200, 200)
+	name: info colour
+	description: The colour of the info text
+	initial: rgb(180, 180, 180)
 
 card style:
 	card type:
 		left: 0
 		top: 0
-		width: 816
-		height: 1110
+		width: 1110
+		height: 816
 		render style: image
 		popup style: in place
 		choice images:
 			character: character_frame.png
 			situation: situation_frame.png
-	name:
+	text:
 		left: 64
 		top: 64
-		width: 688
-		height: 80
-		alignment: middle center shrink-overflow
+		width: 982
+		height: 688
+		alignment: middle center
 		font:
 			name: Andalus
-			size: 42
+			size: 80
+			scale down to: 42
 			weight: bold
-			color: { styling.name_colour }
-		z index: 3
-	image:
-		left: 128
-		top: 155
-		height: 612
-		width: 560
-		z index: 2
-	image border:
-		left: 126
-		top: 153
-		height: 616
-		width: 564
-		z index: 1
-	description:
-		left: 64
-		width: 688
-		top: 840
-		bottom: 1046
-		alignment: top center
-		font:
-			name: Andalus
-			size: 28
-			weight: bold
-			color: { styling.description_colour }
-		z index: 2
+			color: { styling.text_colour }
+		z index: 10
 	number text:
 		left: 36
-		top: 1050
+		bottom: 784
 		width: 150
 		height: 34
 		alignment: middle left
 		font:
 			name: Andalus
 			size: 12
-			color: { styling.number_colour }
+			color: { styling.info_colour }
 		z index: 5
 	copyright:
-		left: 406
-		top: 1050
+		right: 1074
+		bottom: 784
 		width: 376
 		height: 34
 		alignment: middle right
 		font:
 			name: Andalus
 			size: 12
-			color: { styling.number_colour }
+			color: { styling.info_colour }
 		z index: 5

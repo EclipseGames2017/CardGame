@@ -20,32 +20,14 @@ card field:
 
 card field:
 	type: text
-	name: name
+	name: text
 	show statistics: false
 	card list visible: true
-	card list name: Name
+	multi line: true
+	card list name: Text
 	card list column: 2
 	card list width: 250
-	description: The name of the card
-
-card field:
-	type: image
-	name: image
-	show statistics: false
-	description: The image for the card
-
-card field:
-	type: color
-	name: image border
-	show statistics: false
-	save value: false
-	editable: false
-
-card field:
-	type: text
-	name: description
-	multi line: true
-	description: The description of the card
+	description: The text of the card
 
 card field:
 	type: text

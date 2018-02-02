@@ -1,6 +1,6 @@
 card_number :=
 {
-	number := position(of: card, in: set, order_by: { card.name }) + 1
+	number := position(of: card, in: set, order_by: { card.card_type + card.text }) + 1
 	if number <= 9 then "00" + number else
 	if number <= 99 then "0" + number else
 	"" + number
