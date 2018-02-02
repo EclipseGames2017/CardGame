@@ -31,6 +31,17 @@ card field:
 
 card field:
 	type: text
+	name: name
+	save value: false
+	show statistics: false
+	editable: false
+	card list name: Name
+	card list column: 1
+	card list width: 500
+	script: card_name()
+
+card field:
+	type: text
 	name: copyright
 	editable: false
 	show statistics: false
