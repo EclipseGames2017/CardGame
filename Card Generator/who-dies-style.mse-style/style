@@ -27,31 +27,50 @@ styling field:
 
 card style:
 	card type:
-		left: 0
-		top: 0
-		width: 1110
-		height: 816
+		right: 1110
+		bottom: 816
+		width: 20
+		height: 20
 		render style: image
 		popup style: in place
 		choice images:
 			character: character_frame.png
 			situation: situation_frame.png
-	text:
-		left: 64
-		top: 64
-		width: 982
-		height: 688
+		z index: 20
+	character name:
+		left: 96
+		width: 918
+		top: 282
+		height: 252
 		alignment: middle center
 		font:
 			name: Andalus
 			size: 80
-			scale down to: 42
+			scale down to: 38
 			weight: bold
 			color: { styling.text_colour }
 		z index: 10
+	text:
+		left: 96
+		top: 480
+		width: 918
+		height: 272
+		alignment: middle center
+		font:
+			name: Andalus
+			size: 60
+			scale down to: 30
+			weight: bold
+			color: { styling.text_colour }
+		z index: 10
+	situation image:
+		left: 0
+		width: 1110
+		top: 0
+		height: 816
 	number text:
-		left: 36
-		bottom: 784
+		left: 110
+		bottom: 742
 		width: 150
 		height: 34
 		alignment: middle left
@@ -61,7 +80,7 @@ card style:
 			color: { styling.info_colour }
 		z index: 5
 	copyright:
-		right: 1074
+		right: 1046
 		bottom: 784
 		width: 376
 		height: 34
