@@ -24,3 +24,8 @@ card_name :=
 {
 	card.card_type + " " + card_number()
 }
+
+card_meta_text :=
+{
+	card_number() + "/" + card_count() + "   " + set.copyright
+}

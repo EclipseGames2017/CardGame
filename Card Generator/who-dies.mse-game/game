@@ -68,7 +68,7 @@ card field:
 	editable: false
 	show statistics: false
 	save value: false
-	description: The copyright of the card
+	description: The copyright of the card.
 	script: set.copyright
 
 card field:
@@ -81,7 +81,14 @@ card field:
 	card list visible:  true
 	card list column: 1
 	card list width: 100
-	description: The card number
+	description: The card number.
+
+card field:
+	type: text
+	name: number and copyright
+	editable: false
+	show statistics: false
+	script: card_meta_text()
 
 card field:
 	type: text

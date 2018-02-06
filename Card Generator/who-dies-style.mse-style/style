@@ -42,11 +42,12 @@ card style:
 		width: 918
 		top: 282
 		height: 252
-		alignment: middle center
+		alignment: middle center stretch if-overflow
 		font:
 			name: Andalus
 			size: 80
 			scale down to: 38
+			max stretch: 0.75
 			weight: bold
 			color: { styling.text_colour }
 		z index: 10
@@ -68,25 +69,36 @@ card style:
 		width: 1110
 		top: 0
 		height: 816
-	number text:
-		left: 110
-		bottom: 742
-		width: 150
+	number and copyright:
+		left: 0
+		width: 1110
+		bottom: 752
 		height: 34
-		alignment: middle left
+		alignment: middle center
 		font:
 			name: Andalus
-			size: 12
+			size: 8
 			color: { styling.info_colour }
-		z index: 5
-	copyright:
-		right: 1046
-		bottom: 784
-		width: 376
-		height: 34
-		alignment: middle right
-		font:
-			name: Andalus
-			size: 12
-			color: { styling.info_colour }
-		z index: 5
+		z index: 15
+#	number text:
+#		left: 120
+#		bottom: 742
+#		width: 150
+#		height: 34
+#		alignment: middle left
+#		font:
+#			name: Andalus
+#			size: 12
+#			color: { styling.info_colour }
+#		z index: 5
+#	copyright:
+#		right: 1046
+#		bottom: 742
+#		width: 376
+#		height: 34
+#		alignment: middle right
+#		font:
+#			name: Andalus
+#			size: 12
+#			color: { styling.info_colour }
+#		z index: 5
