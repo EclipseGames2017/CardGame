@@ -21,11 +21,38 @@ styling field:
 
 styling field:
 	type: color
+	name: number colour
+	description: The colour of the popularity number
+	initial: rgb(200, 200, 255)
+
+styling field:
+	type: color
 	name: info colour
 	description: The colour of the info text
 	initial: rgb(180, 180, 180)
 
 card style:
+	symbol:
+		right: 1020
+		bottom: 726
+		width: 32
+		height: 32
+		render style: image
+		choice images:
+			default:
+				script: symbol_variation(symbol: set.symbol, variation: "default")
+		z index: 20
+	popularity:
+		left: 96
+		top: 96
+		width: 128
+		height: 128
+		alignment: middle center
+		font:
+			name: Andalus
+			size: 80
+			color: { styling.number_colour }
+		z index: 20
 	card type:
 		right: 1110
 		bottom: 816
@@ -40,8 +67,8 @@ card style:
 	character name:
 		left: 96
 		width: 918
-		top: 282
-		height: 252
+		top: 210
+		bottom: 534
 		alignment: middle center stretch if-overflow
 		font:
 			name: Andalus
@@ -70,14 +97,15 @@ card style:
 		top: 0
 		height: 816
 	number and copyright:
-		left: 0
-		width: 1110
-		bottom: 752
+		left: 1034
+		width: 200
+		bottom: 690
 		height: 34
-		alignment: middle center
+		angle: 90
+		alignment: middle left
 		font:
 			name: Andalus
-			size: 8
+			size: 10
 			color: { styling.info_colour }
 		z index: 15
 #	number text:

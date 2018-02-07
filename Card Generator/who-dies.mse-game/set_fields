@@ -1,0 +1,31 @@
+set field:
+	type: info
+	name: Set Information
+
+set field:
+	type: text
+	name: title
+	identifying: true
+
+set field:
+	type: text
+	name: description
+	multi line: true
+
+set field:
+	type: text
+	name: copyright
+
+set field:
+	type: symbol
+	name: symbol
+	description: The symbol for this set, double click to edit
+
+default set style:
+	symbol:
+		variation:
+			name: default
+			border radius: 0.10
+			fill type: solid
+			fill color: rgb(0, 0, 0)
+			border color: rgb(255, 255, 255)
